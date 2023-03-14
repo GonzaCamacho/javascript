@@ -1,67 +1,32 @@
-/* Simulador para entrar al colegio como estudiante nuevo */
+// Simulador de local de ropa
 
-let nombre = prompt("Ingrese su nombre: ");
-console.log(nombre);
-
-let numeroVacante = parseInt(prompt("Ingrese su numero de vacante: "));
-    for(i=0 ; i < 2 ; i=i+1){
-    if(numeroVacante >= 1 && numeroVacante <= 50){
-        alert("Puede ingresar");
-        console.log("Numero de vacante: " + numeroVacante);
-        break;
+function saludar() {
+    alert("Bienvenido a Malibu shop");
+    let nombre = prompt("Ingrese su nombre");
+    while(nombre === ""){
+        let nombre = prompt("Ingrese su nombre");
     }
-    else {
-        alert("No puede ingresar");
-        numeroVacante = parseInt(prompt("Ingrese su numero de vacante: "));
+    return nombre
+}
+console.log(saludar());
+
+
+class Producto{
+    constructor (prenda, precio){
+        this.prenda = prenda;
+        this.precio = precio;
     }
 }
 
-function contraseñaVacante(){
-    let passwordUsuario = parseInt(prompt("Ingrese su contraseña"));
-    const password = 434343;
-    for (i = 0 ; i < 2 ; i=i+1){
-    if (passwordUsuario == password){
-        console.log("Contraseña aceptada");
-        break;
-    }   else {
-        passwordUsuario = parseInt(prompt("Ingrese nuevamente la contraseña"))
-    }
-}
-}
+const remera = new Producto ("Remera", 3500);
+const jean = new Producto ("Jean", 9500);
+const medias = new Producto ("Medias", 1200);
 
-contraseñaVacante();
 
-let primerExamen = parseFloat(prompt("Ingrese nota de su primer examen"));
-    console.log("La nota de su primer examen es de " + primerExamen);
+const arrayProductos = [remera, jean, medias];
 
-let segundoExamen = parseFloat(prompt("Ingrese nota de su segundo examen"));
-    console.log("La nota de su segundo examen es de " + segundoExamen);
+console.log(arrayProductos);
 
-let promedio = (primerExamen + segundoExamen)/2;
-
-let mensaje = ("El promedio final de sus examenes es de: " + promedio);
-    console.log(mensaje);
-
-let mensajePromedio = prompt("Ingrese su promedio en letras")
-    switch(mensajePromedio){
-
-    case("diez"):
-    alert("Felicitaciones, ha aprobado para ingresar como estudiante al colegio");
-    console.log("Felicitaciones, ha aprobado para ingresar como estudiante al colegio");
-    break;
-
-    case("nueve"):
-    alert("Felicitaciones, ha aprobado para ingresar como estudiante al colegio");
-    console.log("Felicitaciones, ha aprobado para ingresar como estudiante al colegio");
-    break;
-
-    case("ocho"):
-    alert("Felicitaciones, ha aprobado para ingresar como estudiante al colegio");
-    console.log("Felicitaciones, ha aprobado para ingresar como estudiante al colegio");
-    break;
-
-    default:
-    alert("Su promedio final fue insuficiente para ingresar como estudiante al colegio");
-    console.log("Su promedio final fue insuficiente para ingresar como estudiante al colegio");
-    break;
-    }
+arrayProductos.forEach((producto)=>{
+    console.log(producto.precio);
+})
